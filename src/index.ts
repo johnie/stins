@@ -1,5 +1,4 @@
 // Constants
-// biome-ignore lint/performance/noBarrelFile: Public API entry point
 export { HttpStatusCodes, HttpStatusPhrases } from "./constants";
 
 // OpenAPI helpers

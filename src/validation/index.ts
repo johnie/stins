@@ -1,4 +1,3 @@
-// biome-ignore lint/performance/noBarrelFile: Public API entry point
 export {
   type FormattedIssue,
   formatIssues,
