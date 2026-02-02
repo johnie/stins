@@ -16,6 +16,7 @@
     "typescript": "^5"
   },
   "scripts": {
+    "build": "bun build --minify ./src/index.ts --outdir=dist",
     "check": "ultracite check",
     "fix": "ultracite fix",
     "prepare": "lefthook install"
