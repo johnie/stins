@@ -19,7 +19,11 @@
     "build": "bun build --minify ./src/index.ts --outdir=dist",
     "check": "ultracite check",
     "fix": "ultracite fix",
-    "prepare": "lefthook install"
+    "prepare": "lefthook install",
+    "changeset": "changeset",
+    "changeset:version": "changeset version",
+    "changeset:publish": "changeset publish",
+    "release": "bun run build && changeset publish"
   },
   "dependencies": {
     "@standard-schema/spec": "^1.1.0"
