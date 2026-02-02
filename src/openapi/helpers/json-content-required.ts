@@ -1,4 +1,4 @@
-import type { AnyJSONSchema } from "../../types";
+import type { AnyJSONSchema } from "@/types";
 import type { JsonContentOptions, JsonContentResult } from "./json-content";
 
 export type JsonContentRequiredResult<TSchema extends AnyJSONSchema> =

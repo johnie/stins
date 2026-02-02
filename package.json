@@ -9,7 +9,13 @@
     "./http-status-phrases": "./src/constants/http-status-phrases.ts",
     "./openapi": "./src/openapi/index.ts",
     "./validation": "./src/validation/index.ts",
-    "./types": "./src/types/index.ts"
+    "./types": "./src/types/index.ts",
+    "./middleware": "./src/middleware/index.ts",
+    "./middleware/hono": "./src/middleware/adapters/hono.ts",
+    "./middleware/express": "./src/middleware/adapters/express.ts",
+    "./middleware/h3": "./src/middleware/adapters/h3.ts",
+    "./middleware/elysia": "./src/middleware/adapters/elysia.ts",
+    "./middleware/tanstack-start": "./src/middleware/adapters/tanstack-start.ts"
   },
   "devDependencies": {
     "@biomejs/biome": "2.3.13",
