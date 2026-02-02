@@ -1,4 +1,4 @@
-import type { AnyJSONSchema } from "@/types";
+import type { AnyJSONSchema } from "../../types/index.js";
 
 export interface JsonContentOptions {
   target?: "openapi-3.0" | "draft-07" | "draft-2020-12";

@@ -1,6 +1,6 @@
 import type { StandardSchemaV1 } from "@standard-schema/spec";
-import { BAD_REQUEST } from "@/constants/http-status-codes";
-import { formatIssues } from "@/validation";
+import { BAD_REQUEST } from "../../constants/http-status-codes.js";
+import { formatIssues } from "../../validation/index.js";
 import type {
   AnySchema,
   ValidationOptions,

@@ -1,4 +1,4 @@
-import type { AnyJSONSchema } from "@/types";
+import type { AnyJSONSchema } from "../../types/index.js";
 
 export interface OneOfOptions {
   target?: "openapi-3.0" | "draft-07";

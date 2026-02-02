@@ -1,4 +1,4 @@
-import type { AnyJSONSchema } from "@/types";
+import type { AnyJSONSchema } from "../../types/index.js";
 import type { JsonContentOptions } from "./json-content";
 import type { OneOfResult } from "./one-of";
 
