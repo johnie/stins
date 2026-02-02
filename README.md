@@ -27,16 +27,16 @@ import { z } from "zod";
 import { validate } from "stins";
 
 const userSchema = z.object({
-name: z.string(),
-email: z.string().email(),
+  name: z.string(),
+  email: z.string().email(),
 });
 
 const result = await validate(userSchema, data);
 
 if (result.success) {
-console.log(result.data); // typed as { name: string; email: string }
+  console.log(result.data); // typed as { name: string; email: string }
 } else {
-console.log(result.issues); // validation errors
+  console.log(result.issues); // validation errors
 }
 ```
 
@@ -57,12 +57,12 @@ app.notFound(notFound());
 
 // Request validation
 app.post(
-"/users",
-validator("json", validationHookSync(userSchema)),
-(c) => {
-  const user = c.req.valid("json"); // typed
-  return c.json({ user });
-}
+  "/users",
+  validator("json", validationHookSync(userSchema)),
+  (c) => {
+    const user = c.req.valid("json"); // typed
+    return c.json({ user });
+  }
 );
 ```
 
@@ -76,7 +76,7 @@ const app = express();
 app.use(express.json());
 
 app.post("/users", validateBody(userSchema), (req, res) => {
-res.json({ user: req.body }); // req.body is typed
+  res.json({ user: req.body }); // req.body is typed
 });
 
 // Error handling (add after routes)
@@ -94,11 +94,11 @@ const app = createApp({ onError: onError() });
 const router = createRouter();
 
 router.post(
-"/users",
-eventHandler(async (event) => {
-  const body = await validateBody(event, userSchema);
-  return { user: body };
-})
+  "/users",
+  eventHandler(async (event) => {
+    const body = await validateBody(event, userSchema);
+    return { user: body };
+  })
 );
 
 app.use(router);
@@ -112,12 +112,12 @@ import { Elysia } from "elysia";
 import { notFound, onError, validate } from "stins/middleware/elysia";
 
 const app = new Elysia()
-.onError(onError())
-.post("/users", async ({ body }) => {
-  const user = await validate(userSchema, body);
-  return { user };
-})
-.onError(notFound());
+  .onError(onError())
+  .post("/users", async ({ body }) => {
+    const user = await validate(userSchema, body);
+    return { user };
+  })
+  .onError(notFound());
 ```
 
 ### TanStack Start
@@ -127,11 +127,11 @@ import { createServerFn } from "@tanstack/start";
 import { validateInput } from "stins/middleware/tanstack-start";
 
 const createUser = createServerFn({ method: "POST" })
-.validator(validateInput(userSchema))
-.handler(async ({ data }) => {
-  // data is typed
-  return { user: data };
-});
+  .validator(validateInput(userSchema))
+  .handler(async ({ data }) => {
+    // data is typed
+    return { user: data };
+  });
 ```
 
 ## Core APIs
@@ -145,12 +145,12 @@ import { validate, validateSync, formatIssues } from "stins";
 const result = await validate(schema, data);
 
 // Sync validation (throws if schema is async)
-const result = validateSync(schema, data);
+const syncResult = validateSync(schema, data);
 
 // Format issues for display
 if (!result.success) {
-const formatted = formatIssues(result.issues);
-// [{ path: "email", message: "Invalid email" }]
+  const formatted = formatIssues(result.issues);
+  // [{ path: "email", message: "Invalid email" }]
 }
 ```
 
@@ -162,7 +162,7 @@ import { validateRequest, createErrorResponse, createNotFoundResponse } from "st
 // Framework-agnostic request validation
 const result = await validateRequest(schema, data);
 if (!result.success) {
-return new Response(JSON.stringify(result.body), { status: result.status });
+  return new Response(JSON.stringify(result.body), { status: result.status });
 }
 
 // Standardized error responses
@@ -182,21 +182,24 @@ import * as HTTP_PHRASES from "stins/http-status-phrases";
 return c.json({ user }, OK);
 
 // Error response with phrase
-return c.json({
-status: NOT_FOUND,
-error: HTTP_PHRASES.NOT_FOUND,
-message: `User ${id} not found`,
-}, NOT_FOUND);
+return c.json(
+  {
+    status: NOT_FOUND,
+    error: HTTP_PHRASES.NOT_FOUND,
+    message: `User ${id} not found`,
+  },
+  NOT_FOUND
+);
 
 // Custom error class
 class ApiError extends Error {
-constructor(
-  public status: number,
-  public code: string,
-  message: string
-) {
-  super(message);
-}
+  constructor(
+    public status: number,
+    public code: string,
+    message: string
+  ) {
+    super(message);
+  }
 }
 
 throw new ApiError(BAD_REQUEST, "INVALID_EMAIL", "Email format is invalid");
@@ -219,8 +222,8 @@ Utilities for building OpenAPI-compatible response definitions:
 import { jsonContent, jsonContentRequired, oneOf } from "stins/openapi";
 
 const responses = {
-200: jsonContent(userSchema["~standard"].toJSONSchema(), "Successful response"),
-400: jsonContentRequired(errorSchema["~standard"].toJSONSchema(), "Validation error"),
+  200: jsonContent(userSchema["~standard"].toJSONSchema(), "Successful response"),
+  400: jsonContentRequired(errorSchema["~standard"].toJSONSchema(), "Validation error"),
 };
 ```
 
