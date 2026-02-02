@@ -3,5 +3,12 @@
   "extends": ["ultracite/biome/core"],
   "javascript": {
     "globals": ["Bun"]
+  },
+  "linter": {
+    "rules": {
+      "performance": {
+        "noBarrelFile": "off"
+      }
+    }
   }
 }
