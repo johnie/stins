@@ -1,21 +1,61 @@
 {
   "name": "stins",
   "version": "0.1.0",
-  "module": "src/index.ts",
   "type": "module",
+  "main": "./dist/src/index.js",
+  "types": "./dist/src/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "exports": {
-    ".": "./src/index.ts",
-    "./http-status-codes": "./src/constants/http-status-codes.ts",
-    "./http-status-phrases": "./src/constants/http-status-phrases.ts",
-    "./openapi": "./src/openapi/index.ts",
-    "./validation": "./src/validation/index.ts",
-    "./types": "./src/types/index.ts",
-    "./middleware": "./src/middleware/index.ts",
-    "./middleware/hono": "./src/middleware/adapters/hono.ts",
-    "./middleware/express": "./src/middleware/adapters/express.ts",
-    "./middleware/h3": "./src/middleware/adapters/h3.ts",
-    "./middleware/elysia": "./src/middleware/adapters/elysia.ts",
-    "./middleware/tanstack-start": "./src/middleware/adapters/tanstack-start.ts"
+    ".": {
+      "types": "./dist/src/index.d.ts",
+      "import": "./dist/src/index.js"
+    },
+    "./http-status-codes": {
+      "types": "./dist/src/constants/http-status-codes.d.ts",
+      "import": "./dist/src/constants/http-status-codes.js"
+    },
+    "./http-status-phrases": {
+      "types": "./dist/src/constants/http-status-phrases.d.ts",
+      "import": "./dist/src/constants/http-status-phrases.js"
+    },
+    "./openapi": {
+      "types": "./dist/src/openapi/index.d.ts",
+      "import": "./dist/src/openapi/index.js"
+    },
+    "./validation": {
+      "types": "./dist/src/validation/index.d.ts",
+      "import": "./dist/src/validation/index.js"
+    },
+    "./types": {
+      "types": "./dist/src/types/index.d.ts",
+      "import": "./dist/src/types/index.js"
+    },
+    "./middleware": {
+      "types": "./dist/src/middleware/index.d.ts",
+      "import": "./dist/src/middleware/index.js"
+    },
+    "./middleware/hono": {
+      "types": "./dist/src/middleware/adapters/hono.d.ts",
+      "import": "./dist/src/middleware/adapters/hono.js"
+    },
+    "./middleware/express": {
+      "types": "./dist/src/middleware/adapters/express.d.ts",
+      "import": "./dist/src/middleware/adapters/express.js"
+    },
+    "./middleware/h3": {
+      "types": "./dist/src/middleware/adapters/h3.d.ts",
+      "import": "./dist/src/middleware/adapters/h3.js"
+    },
+    "./middleware/elysia": {
+      "types": "./dist/src/middleware/adapters/elysia.d.ts",
+      "import": "./dist/src/middleware/adapters/elysia.js"
+    },
+    "./middleware/tanstack-start": {
+      "types": "./dist/src/middleware/adapters/tanstack-start.d.ts",
+      "import": "./dist/src/middleware/adapters/tanstack-start.js"
+    }
   },
   "devDependencies": {
     "@biomejs/biome": "2.3.13",
@@ -23,6 +63,7 @@
     "@changesets/cli": "^2.29.8",
     "@types/bun": "latest",
     "@types/node": "^25.2.0",
+    "bunup": "^0.16.22",
     "lefthook": "^2.0.16",
     "ultracite": "7.1.3"
   },
@@ -30,7 +71,7 @@
     "typescript": "^5"
   },
   "scripts": {
-    "build": "bun build --minify ./src/index.ts --outdir=dist",
+    "build": "bunup",
     "check": "ultracite check",
     "fix": "ultracite fix",
     "prepare": "lefthook install",
