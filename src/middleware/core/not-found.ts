@@ -1,4 +1,4 @@
-import { NOT_FOUND } from "@/constants/http-status-codes";
+import { NOT_FOUND } from "../../constants/http-status-codes.js";
 import type { MiddlewareResponse } from "../types";
 
 /**

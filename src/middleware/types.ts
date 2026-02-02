@@ -1,5 +1,5 @@
 import type { StandardSchemaV1 } from "@standard-schema/spec";
-import type { FormattedIssue } from "@/validation";
+import type { FormattedIssue } from "../validation/index.js";
 
 /**
  * Standard response body for middleware responses

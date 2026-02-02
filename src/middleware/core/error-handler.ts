@@ -1,4 +1,4 @@
-import { INTERNAL_SERVER_ERROR } from "@/constants/http-status-codes";
+import { INTERNAL_SERVER_ERROR } from "../../constants/http-status-codes.js";
 import type { ErrorHandlerOptions, MiddlewareResponse } from "../types";
 
 /**

@@ -1,4 +1,4 @@
-export { HTTP_STATUS_CODES, HTTP_STATUS_PHRASES } from "@/constants";
+export { HTTP_STATUS_CODES, HTTP_STATUS_PHRASES } from "./constants/index.js";
 // Middleware
 export {
   type AnySchema,
@@ -18,7 +18,7 @@ export {
   type ValidationResponseSuccess,
   validateRequest,
   validateRequestSync,
-} from "@/middleware";
+} from "./middleware/index.js";
 // OpenAPI helpers
 export {
   type JsonContentOneOfResult,
@@ -31,7 +31,7 @@ export {
   type OneOfOptions,
   type OneOfResult,
   oneOf,
-} from "@/openapi";
+} from "./openapi/index.js";
 // Types
 export type {
   AnyJSONSchema,
@@ -40,7 +40,7 @@ export type {
   InferOutput,
   StandardJSONSchemaV1,
   StandardSchemaV1,
-} from "@/types";
+} from "./types/index.js";
 // Validation
 export {
   type FormattedIssue,
@@ -51,4 +51,4 @@ export {
   type ValidationSuccess,
   validate,
   validateSync,
-} from "@/validation";
+} from "./validation/index.js";
